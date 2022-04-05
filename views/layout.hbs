@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ByteSolutions</title>
+      <!-- =============== Bootstrap Core CSS =============== -->
+      <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+      <!-- =============== fonts awesome =============== -->
+      <link rel="stylesheet" href="../font/css/font-awesome.min.css">
+      <!-- =============== Plugin CSS =============== -->
+      <link rel="stylesheet" href="../stylesheets/animate.min.css">
+      <!-- =============== Custom CSS =============== -->
+      <link rel="stylesheet" href="../stylesheets/style.css">
+      <!-- =============== Owl Carousel Assets =============== -->
+      <link href="../owl-carousel/owl.carousel.css" rel="stylesheet">
+      <link href="../owl-carousel/owl.theme.css" rel="stylesheet">
+      
+      <link rel="stylesheet" href="../stylesheets/isotope-docs.css" media="screen">
+      <link rel="stylesheet" href="../stylesheets/baguetteBox.css">
+  </head>
+  <body>
+    {{{body}}}
+<script src="../javascripts/jquery.js"></script>
+<script src="../javascripts/isotope-docs.min.js"></script>
+      <!-- =============== Bootstrap Core JavaScript =============== -->
+<script src="../javascripts/bootstrap.min.js"></script>
+      <!-- =============== Plugin JavaScript =============== -->
+<script src="../javascripts/jquery.easing.min.js"></script>
+<script src="../javascripts/jquery.fittext.js"></script>
+<script src="../javascripts/wow.min.js"></script> 
+      <!-- =============== owl carousel =============== -->
+<script src="../owl-carousel/owl.carousel.js"></script>  
+      <!-- Isotope does NOT require jQuery. But it does make things easier -->
+<script src="../javascripts/baguetteBox.js" ></script>
+<script src="../javascripts/plugins.js" ></script>
+      <!-- =============== Custom Theme JavaScript =============== -->
+<script src="../javascripts/creative.js"></script> 
+<script src="../javascripts/jquery.nicescroll.min.js"></script>
+      <!-- =============== Other Scripts =================== -->
+<script>
+  $(document).ready(function() {
+  
+	var nice = $("html").niceScroll();  // The document page (body)
+	
+	$("#div1").html($("#div1").html()+' '+nice.version);
+    
+    $("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#00F",boxzoom:true}); // First scrollable DIV
+
+    $("#boxscroll2").niceScroll("#contentscroll2",{cursorcolor:"#F00",cursoropacitymax:0.7,boxzoom:true,touchbehavior:true});  // Second scrollable DIV
+    $("#boxframe").niceScroll("#boxscroll3",{cursorcolor:"#0F0",cursoropacitymax:0.7,boxzoom:true,touchbehavior:true});  // This is an IFrame (iPad compatible)
+	
+    $("#boxscroll4").niceScroll("#boxscroll4 .wrapper",{boxzoom:true});  // hw acceleration enabled when using wrapper
+    
+  });
+</script>
+<script>
+window.onload = function() {
+    if(typeof oldIE === 'undefined' && Object.keys)
+        hljs.initHighlighting();
+
+    baguetteBox.run('.baguetteBoxOne');
+    baguetteBox.run('.baguetteBoxTwo');
+    baguetteBox.run('.baguetteBoxThree', {
+        animation: 'fadeIn'
+    });
+    baguetteBox.run('.baguetteBoxFour', {
+        buttons: false
+    });
+    baguetteBox.run('.baguetteBoxFive', {
+        captions: function(element) {
+            return element.getElementsByTagName('img')[0].alt;
+        }
+    });
+};
+</script>
+  </body>
+</html>
