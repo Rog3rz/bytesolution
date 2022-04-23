@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var passport = require('passport');
+var mercadopago = require('mercadopago');
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
