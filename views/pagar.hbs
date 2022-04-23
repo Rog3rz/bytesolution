@@ -1,10 +1,22 @@
-{{> preload}}
-    {{> navbar}}
-        {{> home}}
-        {{> about}}
-        {{> team}}
-        {{> services}}
-        {{> forbox}}
-        {{> counter}}
-        {{> gallery}}
-    {{> footer}}
+<body>
+   <!-- Add step #2 -->
+   <link rel="stylesheet" href="../public/stylesheets/login.css">
+   <script src="https://sdk.mercadopago.com/js/v2"></script>
+   <script>
+       const mp = new MercadoPago('APP_USR-88a7ddb8-24e8-4c84-ad91-9896692af376');
+       // Add step #3
+   </script>
+
+<form id="form-checkout" >
+   <input type="text" name="cardNumber" id="form-checkout__cardNumber"  placeholder="cardNumber"/>
+   <input type="text" name="cardExpirationDate" id="form-checkout__cardExpirationDate" placeholder="ExpirationDate"/>
+   <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="cardholderName"/>
+   <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="cardholderEmail"/>
+   <input type="text" name="securityCode" id="form-checkout__securityCode" placeholder="securityCode"/>
+   <select name="issuer" id="form-checkout__issuer">issuer</select>
+   <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="identificationNumber"/>
+   <select name="installments" id="form-checkout__installments">installments</select>
+   <button type="submit" id="form-checkout__submit">Pagar</button>
+   <progress value="0" class="progress-bar">Cargando...</progress>
+</form>
+</body>
