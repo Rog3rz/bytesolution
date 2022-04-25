@@ -6,21 +6,44 @@
        const mp = new MercadoPago('APP_USR-88a7ddb8-24e8-4c84-ad91-9896692af376');
        // Add step #3
    </script>
-
-<form id="form-checkout" >
+<div>
+   <form id="form-checkout" >
+     <div>
    <input type="text" name="cardNumber" id="form-checkout__cardNumber"  placeholder="cardNumber"/>
+     </div>
+     <div>
    <input type="text" name="cardExpirationDate" id="form-checkout__cardExpirationDate" placeholder="ExpirationDate"/>
+     </div>
+     <div>
    <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="cardholderName"/>
+     </div>
+     <div>
    <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="cardholderEmail"/>
+     </div>
+     <div>
    <input type="text" name="securityCode" id="form-checkout__securityCode" placeholder="securityCode"/>
-   <select name="issuer" id="form-checkout__issuer">issuer</select>
+     </div>
+     <div>
+   <select name="issuer" id="form-checkout__issuer">
+      <option value="--issuer--">--issuer--</option>
+   </select>
+     </div>
+     <div>
    <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="identificationNumber"/>
-   <select name="installments" id="form-checkout__installments">installments</select>
+     </div>
+     <div>
+   <select name="installments" id="form-checkout__installments">
+      <option value="--installments--">--issuer--</option>
+   </select>
+     </div>
+     <div>
    <button type="submit" id="form-checkout__submit">Pagar</button>
    <progress value="0" class="progress-bar">Cargando...</progress>
+     </div>
 </form>
-<div class="estras" display="none">
+</div>
 
+<div display="none">
 <form action="/process_payment" method="post" id="paymentForm">
     <h3>Medio de pago</h3>
     <div>
@@ -47,7 +70,10 @@
       </div>
       <div>
         <label for="docType">Tipo de documento</label>
-        <select id="docType" name="docType" data-checkout="docType" type="text"></select>
+        <select id="docType" name="docType" data-checkout="docType" type="text">
+           <option value="--opsion 1--">--tipo 1--</option>
+        </select>
+        
       </div>
       <div>
         <label for="docNumber">Número de documento</label>
@@ -65,4 +91,7 @@
       </div>
   </div>
 </form>
+
+</div>
+
 </body>
