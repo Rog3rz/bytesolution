@@ -1,100 +1,20 @@
-<body>
-   <!-- Add step #2 -->
-   <script src="https://sdk.mercadopago.com/js/v2"></script>
-   <script>
-
-       const mp = new MercadoPago('APP_USR-88a7ddb8-24e8-4c84-ad91-9896692af376');
-       // Add step #3
-   </script>
-<div>
-   <form id="form-checkout"  >
-     <div>
-   <input type="text" name="cardNumber" id="form-checkout__cardNumber"  placeholder="cardNumber"/>
-     </div>
-     <div>
-   <input type="text" name="cardExpirationDate" id="form-checkout__cardExpirationDate" placeholder="ExpirationDate"/>
-     </div>
-     <div>
-   <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="cardholderName"/>
-     </div>
-     <div>
-   <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="cardholderEmail"/>
-     </div>
-     <div>
-   <input type="text" name="securityCode" id="form-checkout__securityCode" placeholder="securityCode"/>
-     </div>
-     <div>
-   <select name="issuer" id="form-checkout__issuer">
-      <option value="--issuer--">--issuer--</option>
-   </select>
-     </div>
-     <div>
-   <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="identificationNumber"/>
-     </div>
-     <div>
-   <select name="installments" id="form-checkout__installments">
-      <option value="--installments--">--issuer--</option>
-   </select>
-     </div>
-     <div>
-   <button type="submit" id="form-checkout__submit">Pagar</button>
-   <progress value="0" class="progress-bar">Cargando...</progress>
-     </div>
-</form>
-</div>
-
-<div display="none">
-<form action="/process_payment" method="post" id="paymentForm">
-    <h3>Medio de pago</h3>
-    <div>
-      <select class="form-control" id="paymentMethod" name="paymentMethod">
-        <option>Seleccione un medio de pago</option>
-
-        <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
-        <option value="--PaymentId--">--PaymentTypeName--</option>
-      </select>
-    </div>
-    <h3>Detalles del comprador</h3>
-    <div>
-    <div>
-        <label for="payerFirstName">Nombre</label>
-        <input id="payerFirstName" name="payerFirstName" type="text" value="Nome">
-      </div>
-      <div>
-        <label for="payerLastName">Apellido</label>
-        <input id="payerLastName" name="payerLastName" type="text" value="Sobrenome">
-      </div>
-      <div>
-        <label for="payerEmail">E-mail</label>
-        <input id="payerEmail" name="payerEmail" type="text" value="test@test.com">
-      </div>
-      <div>
-        <label for="docType">Tipo de pago</label>
-        <select id="docType" name="docType" data-checkout="docType" type="text">
-           <option value="">selecciona forma de pago</option>
-           <option value="-OXXO--">OXXO</option>
-           <option value="-PayCash--">PayCash</option>
-           <option value="BBVA Bancomer">BBVA Bancomer</option>
-        </select>
-        
-      </div>
-      <div>
-        <label for="docNumber">Número de pago</label>
-        <input id="docNumber" name="docNumber" data-checkout="docNumber" type="text"/>
-      </div>
-    <div>
-      <div>
-        <input type="hidden" name="transactionAmount" id="transactionAmount" value="100" />
-        <input type="hidden" name="productDescription" id="productDescription" value="Nombre del Producto" />
-        <br>
-        <button type="submit">Pagar</button>
-        <br>
-      </div>
-  </div>
-
-</div>
-</form>
-</div>
-
-
-</body>
+<form id="form-checkout" method="POST" action="/pago">
+       <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
+       <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
+       <input type="text" id="form-checkout__cardExpirationYear" placeholder="Año de vencimiento (YY o YYYY)" />
+       <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="Titular de la tarjeta"/>
+       <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="E-mail" />
+       <input type="text" id="form-checkout__securityCode" placeholder="Código de seguridad"/>
+       <select name="issuer" id="form-checkout__issuer">
+           <option value="" disabled selected>Seleccione el emisor</option>
+       </select>
+       <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="Número de documento" />
+       <select name="installments" id="form-checkout__installments">
+           <option value="" disabled selected>Elige la cantidad de cuotas</option>
+       </select>
+       <input id="token" name="token" type="hidden" />
+       <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
+       <input id="transactionAmount" name="transactionAmount" type="hidden" value="100"/>
+       <input id="description" name="description" type="hidden" value="product description" />
+       <button type="submit" id="form-checkout__submit">Pagar</button>
+   </form>
