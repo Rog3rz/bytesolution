@@ -22,25 +22,21 @@
        <input id="transactionAmount" name="transactionAmount" type="hidden" value="10,000"/>
        <input id="description" name="description" type="hidden" value="switch programable 48 puertos" />
 
-        <a href="./">
-        <button type="submit" class="btn btn-sm btn-li wow fadeInUp animated">Regresar</button>
-        </a>
 
        <button type="submit" id="form-checkout__submit" class="btn btn-sm btn-li wow fadeInUp animated">Pagar</button>
    </form>
-</div>
 
 <div class="formulario">
      <form action="/oxxo" method="post" id="paymentForm">
-       <h1>Otros medios de Pago</h1>
+      <h1>Otros medios de Pago</h1>
         <div>
             <select class="form-control" id="paymentMethod" name="paymentMethod">
                 <option>Seleccione un medio de pago</option>
-
-                <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
                 {{#each (metodoPago payment_methods)}}
                     <option value="{{@key}}">{{this}}</option>
                 {{/each}}
+                <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
+    
                               
             </select>
         </div>

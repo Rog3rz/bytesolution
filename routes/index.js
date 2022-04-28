@@ -50,7 +50,7 @@ router.get('/mes1', async function(req, res, next) {
 });
 router.get('/mes3', async function(req, res, next) {
   var response = await mercadopago.payment_methods.listAll();
-  res.render('mes3', {  payment_methods: response.bod });
+  res.render('mes3', {  payment_methods: response.body });
 });
 router.get('/mes6', async function(req, res, next) {
   var response = await mercadopago.payment_methods.listAll();
