@@ -3,6 +3,11 @@ const { ObjectId } = require('mongodb');
 var router = express.Router();
 var passport = require('passport');
 var {client, dbName} = require('../db/mongo');
+var mercadopago = require('mercadopago');
+var x = require("../helpers/helperHBS");
+
+
+
 
 passport.deserializeUser(async function(id, done) {
   await client.connect();
@@ -34,13 +39,18 @@ mercadopago.configurations.setAccessToken("TEST-45580239064098-040520-31b32a7c1b
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
-});
+}); 
 
 router.get('/pagar', function(req, res, next) {
   res.render('pagar', { title: 'Express' });
 });
 
+router.get('/',  async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('index', { payment_methods: response.body });
+});
 
+//Pago con tarjeta
  
 router.post('/pago', function(req, res, next) {
   console.log(req.body)
@@ -71,6 +81,35 @@ router.post('/pago', function(req, res, next) {
       console.error(error)
     });
 })
+
+//Pago con otro medio
+router.post('/oxxo',function(req, res, next){
+  console.log(req.body);
+  var payment_data = {
+    transaction_amount: 100,
+    description: 'Título del producto',
+    payment_method_id: req.body.paymentMethod,
+    payer: {
+      email: req.body.payerEmail
+    }
+  };
+  
+  console.log(payment_data);
+  
+  mercadopago.payment.create(payment_data)
+    .then(function(response) {
+      res.status(response.status).json({
+        status: response.body.status,
+        status_detail: response.body.status_detail,
+        url: response.body.transaction_details.external_resource_url,
+        id: response.body.id
+      });
+    })
+    .catch(function(error) {
+      console.error(error)
+    });
+})
+
 
 
 module.exports = router;
