@@ -5,9 +5,7 @@ var passport = require('passport');
 var {client, dbName} = require('../db/mongo');
 var mercadopago = require('mercadopago');
 var x = require("../helpers/helperHBS");
-
-
-
+mercadopago.configurations.setAccessToken("TEST-45580239064098-040520-31b32a7c1b8b2e5fbc218a5e7a22dc95-813058479");
 
 passport.deserializeUser(async function(id, done) {
   await client.connect();
@@ -33,13 +31,11 @@ passport.deserializeUser(async function(id, done) {
 //   res.render('index');
 // });
 
-var mercadopago = require('mercadopago');
-mercadopago.configurations.setAccessToken("TEST-45580239064098-040520-31b32a7c1b8b2e5fbc218a5e7a22dc95-813058479");
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-}); 
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// }); 
 
 
 router.get('/',  async function(req, res, next) {
@@ -48,20 +44,25 @@ router.get('/',  async function(req, res, next) {
 });
 
 /*---compras---*/
-router.get('/mes1', function(req, res, next) {
-  res.render('mes1', { title: 'Express' });
+router.get('/mes1', async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('mes1', {  payment_methods: response.body });
 });
-router.get('/mes3', function(req, res, next) {
-  res.render('mes3', { title: 'Express' });
+router.get('/mes3', async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('mes3', {  payment_methods: response.bod });
 });
-router.get('/mes6', function(req, res, next) {
-  res.render('mes6', { title: 'Express' });
+router.get('/mes6', async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('mes6', {  payment_methods: response.body });
 });
-router.get('/p48', function(req, res, next) {
-  res.render('p48', { title: 'Express' });
+router.get('/p48', async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('p48', {  payment_methods: response.body });
 });
-router.get('/ponchado', function(req, res, next) {
-  res.render('ponchado', { title: 'Express' });
+router.get('/ponchado', async function(req, res, next) {
+  var response = await mercadopago.payment_methods.listAll();
+  res.render('ponchado', { payment_methods: response.body });
 });
 
 //Pago con tarjeta

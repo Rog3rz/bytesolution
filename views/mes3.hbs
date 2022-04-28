@@ -30,7 +30,9 @@
         <div>
             <select class="form-control" id="paymentMethod" name="paymentMethod">
                 <option>Seleccione un medio de pago</option>
-
+                {{#each (metodoPago payment_methods)}}
+                    <option value="{{@key}}">{{this}}</option>
+                {{/each}}
                 <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
     
                               

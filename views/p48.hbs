@@ -32,7 +32,9 @@
                 <option>Seleccione un medio de pago</option>
 
                 <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
-    
+                {{#each (metodoPago payment_methods)}}
+                    <option value="{{@key}}">{{this}}</option>
+                {{/each}}
                               
             </select>
         </div>

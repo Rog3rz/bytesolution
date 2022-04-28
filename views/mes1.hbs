@@ -2,37 +2,44 @@
 
 <div class="container">
 <div class="formulario">
-<form id="form-checkout" method="POST" action="/pago">
-       <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
-       <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
-       <input type="text" id="form-checkout__cardExpirationYear" placeholder="Año de vencimiento (YY o YYYY)" />
-       <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="Titular de la tarjeta"/>
-       <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="E-mail" />
-       <input type="text" id="form-checkout__securityCode" placeholder="Código de seguridad"/>
-       <select name="issuer" id="form-checkout__issuer">
-           <option value="" disabled selected>Seleccione el emisor</option>
-       </select>
-       <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="Número de documento" />
-       <select name="installments" id="form-checkout__installments">
-           <option value="" disabled selected>Elige la cantidad de cuotas</option>
-       </select>
-       <input id="token" name="token" type="hidden" />
-       <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
-       <input id="transactionAmount" name="transactionAmount" type="hidden" value="20,000"/>
-       <input id="description" name="description" type="hidden" value="mes1" />
-       <button type="submit" id="form-checkout__submit">Pagar</button>
-   </form>
+<form id="form-checkout" method="POST" action="/process_payment">
+        <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
+        <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
+        <input type="text" id="form-checkout__cardExpirationYear" placeholder="Año de vencimiento (YY o YYYY)" />
+        <input type="text" name="cardholderName" id="form-checkout__cardholderName"
+            placeholder="Titular de la tarjeta" />
+        <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="E-mail" />
+        <input type="text" id="form-checkout__securityCode" placeholder="Código de seguridad" />
+        <select name="issuer" id="form-checkout__issuer">
+            <option value="" disabled selected>Seleccione el emisor</option>
+        </select>
+        <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"
+            placeholder="Número de documento" hidden/>
+        <select name="installments" id="form-checkout__installments">
+            <option value="" disabled selected>Elige la cantidad de cuotas</option>
+        </select>
+        <input id="token" name="token" type="hidden" />
+        <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
+        <input id="transactionAmount" name="transactionAmount" type="hidden" value="100" />
+        <input id="description" name="description" type="hidden" value="product description" />
+        <button type="submit" id="form-checkout__submit">Pagar</button>
+    </form>
 </div>
 
-<div class="formulario">
-     <form action="/oxxo" method="post" id="paymentForm">
+
+
+<div>
+    <form action="/procesar_pago" method="post" id="paymentForm">
         <h3>Medio de pago</h3>
         <div>
             <select class="form-control" id="paymentMethod" name="paymentMethod">
                 <option>Seleccione un medio de pago</option>
 
-                <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->  
-                              
+                <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
+                {{#each (metodoPago payment_methods)}}
+                    <option value="{{@key}}">{{this}}</option>
+                {{/each}}    
+                
             </select>
         </div>
         <h3>Detalles del comprador</h3>
