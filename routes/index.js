@@ -41,13 +41,27 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 }); 
 
-router.get('/pagar', function(req, res, next) {
-  res.render('pagar', { title: 'Express' });
-});
 
 router.get('/',  async function(req, res, next) {
   var response = await mercadopago.payment_methods.listAll();
   res.render('index', { payment_methods: response.body });
+});
+
+/*---compras---*/
+router.get('/mes1', function(req, res, next) {
+  res.render('mes1', { title: 'Express' });
+});
+router.get('/mes3', function(req, res, next) {
+  res.render('mes3', { title: 'Express' });
+});
+router.get('/mes6', function(req, res, next) {
+  res.render('mes6', { title: 'Express' });
+});
+router.get('/p48', function(req, res, next) {
+  res.render('p48', { title: 'Express' });
+});
+router.get('/ponchado', function(req, res, next) {
+  res.render('ponchado', { title: 'Express' });
 });
 
 //Pago con tarjeta
@@ -80,6 +94,7 @@ router.post('/pago', function(req, res, next) {
     .catch(function(error) {
       console.error(error)
     });
+    console.log("pago realizado")
 })
 
 //Pago con otro medio

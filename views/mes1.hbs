@@ -1,0 +1,73 @@
+<link rel='stylesheet' href='stylesheets/tarjeta.css' />
+
+<div class="container">
+<div class="formulario">
+<form id="form-checkout" method="POST" action="/pago">
+       <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
+       <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
+       <input type="text" id="form-checkout__cardExpirationYear" placeholder="Año de vencimiento (YY o YYYY)" />
+       <input type="text" name="cardholderName" id="form-checkout__cardholderName" placeholder="Titular de la tarjeta"/>
+       <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail" placeholder="E-mail" />
+       <input type="text" id="form-checkout__securityCode" placeholder="Código de seguridad"/>
+       <select name="issuer" id="form-checkout__issuer">
+           <option value="" disabled selected>Seleccione el emisor</option>
+       </select>
+       <input type="text" name="identificationNumber" id="form-checkout__identificationNumber" placeholder="Número de documento" />
+       <select name="installments" id="form-checkout__installments">
+           <option value="" disabled selected>Elige la cantidad de cuotas</option>
+       </select>
+       <input id="token" name="token" type="hidden" />
+       <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
+       <input id="transactionAmount" name="transactionAmount" type="hidden" value="20,000"/>
+       <input id="description" name="description" type="hidden" value="mes1" />
+       <button type="submit" id="form-checkout__submit">Pagar</button>
+   </form>
+</div>
+
+<div class="formulario">
+     <form action="/oxxo" method="post" id="paymentForm">
+        <h3>Medio de pago</h3>
+        <div>
+            <select class="form-control" id="paymentMethod" name="paymentMethod">
+                <option>Seleccione un medio de pago</option>
+
+                <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->  
+                              
+            </select>
+        </div>
+        <h3>Detalles del comprador</h3>
+        <div>
+            <div>
+                <label for="payerFirstName">Nombre</label>
+                <input id="payerFirstName" name="payerFirstName" type="text" value="">
+            </div>
+            <div>
+                <label for="payerLastName">Apellido</label>
+                <input id="payerLastName" name="payerLastName" type="text" value="">
+            </div>
+            <div>
+                <label for="payerEmail">E-mail</label>
+                <input id="payerEmail" name="payerEmail" type="text" value="test@test.com">
+            </div>
+            <div>
+                {{!-- <label for="docType">Tipo de documento</label> --}}
+                <select id="docType" name="docType" data-checkout="docType" type="text" hidden></select>
+            </div>
+            <div>
+                {{!-- <label for="docNumber">Número de documento</label> --}}
+                <input id="docNumber" name="docNumber" data-checkout="docNumber" type="text" hidden/>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <input type="hidden" name="transactionAmount" id="transactionAmount" value="100" />
+                <input type="hidden" name="productDescription" id="productDescription" value="switch" />
+                <br>
+                <button type="submit">Pagar</button>
+                <br>
+            </div>
+        </div>
+    </form>
+</div>
+</div>

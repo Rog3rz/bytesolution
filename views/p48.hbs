@@ -1,4 +1,7 @@
-<div>
+<link rel='stylesheet' href='stylesheets/tarjeta.css' />
+
+<div class="container">
+<div class="formulario">
 <form id="form-checkout" method="POST" action="/pago">
        <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
        <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
@@ -15,13 +18,13 @@
        </select>
        <input id="token" name="token" type="hidden" />
        <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
-       <input id="transactionAmount" name="transactionAmount" type="hidden" value="100"/>
-       <input id="description" name="description" type="hidden" value="product description" />
+       <input id="transactionAmount" name="transactionAmount" type="hidden" value="10,000"/>
+       <input id="description" name="description" type="hidden" value="switch programable 48 puertos" />
        <button type="submit" id="form-checkout__submit">Pagar</button>
    </form>
 </div>
 
-<div>
+<div class="formulario">
      <form action="/oxxo" method="post" id="paymentForm">
         <h3>Medio de pago</h3>
         <div>
@@ -67,4 +70,5 @@
             </div>
         </div>
     </form>
+</div>
 </div>
