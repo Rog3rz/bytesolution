@@ -1,9 +1,12 @@
 <link rel="stylesheet" href="../stylesheets/chat.css">
 
-<ul id="messages"></ul>
+<div class="padrechat">
+  <div class="top"><a href="./index.hbs"></a><p>Bienvenido al chat de ByteSolutions</p></div>
+  <ul id="messages"></ul>
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
 <script src="../javascripts/io.js"></script>

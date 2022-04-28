@@ -226,7 +226,7 @@ transition: all 0.35s ease 0s;
     height: 400px;
 }
 #l{
-    background-image: url("../../images/Victor-img.jpg");
+    background-image: url("../../images/Victor-img.jpeg");
     background-repeat: no-repeat;
     background-position: right;
     background-size: cover;
@@ -965,6 +965,20 @@ blockquote {
     color: white;
     display: block;
     float: right;
+    font-size: 16px;
+    margin-bottom: 50px;
+    margin-right: 15px;
+    padding: 10px 0;
+    transition: all 0.3s ease 0s;
+    width: 165px;
+}
+.btn-li {
+    background: #3b3eee none repeat scroll 0 0;
+    border-radius: 4px;
+    color: white;
+    display: relative;
+   left: 50%;
+   right: 50%;
     font-size: 16px;
     margin-bottom: 50px;
     margin-right: 15px;
