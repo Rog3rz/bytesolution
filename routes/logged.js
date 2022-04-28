@@ -29,5 +29,14 @@ router.get('/',(req, res, next) => {
   res.render('logged');
 });
 
+router.get('/chat',(req, res, next) => {
+  if (req.isAuthenticated()) {
+      return next();
+  } else {
+      res.redirect('/login')
+  }
+}, function(req, res, next) {
+  res.render('chat');
+});
 
 module.exports = router;
