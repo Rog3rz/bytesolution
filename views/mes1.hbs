@@ -2,7 +2,9 @@
 
 <div class="container">
 <div class="formulario">
-<form id="form-checkout" method="POST" action="/process_payment">
+ <h1>pago con tarjeta</h1>
+<form id="form-checkout" method="POST" action="/process_payment" class="in">
+  
         <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
         <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
         <input type="text" id="form-checkout__cardExpirationYear" placeholder="Año de vencimiento (YY o YYYY)" />
@@ -22,17 +24,24 @@
         <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
         <input id="transactionAmount" name="transactionAmount" type="hidden" value="100" />
         <input id="description" name="description" type="hidden" value="product description" />
-        <button type="submit" id="form-checkout__submit">Pagar</button>
+        <br>
+        <br>
+        <a href="./">
+        <button class="btn btn-sm btn-li wow fadeInUp animated">Regresar</button>
+        </a>
+        <button type="submit"class="btn btn-sm btn-li wow fadeInUp animated" id="form-checkout__submit">Pagar</button>
+        <br>
     </form>
 </div>
 
 
 
-<div>
+<div class="formulario">
     <form action="/procesar_pago" method="post" id="paymentForm">
-        <h3>Medio de pago</h3>
+        <h1>Otros medios de Pago</h1>
+        <br>
         <div>
-            <select class="form-control" id="paymentMethod" name="paymentMethod">
+            <select class="form-control" id="paymentMethod" name="paymentMethod" style="width: 90%;">
                 <option>Seleccione un medio de pago</option>
 
                 <!-- Create an option for each payment method with their name and complete the ID in the attribute 'value'. -->
@@ -71,7 +80,7 @@
                 <input type="hidden" name="transactionAmount" id="transactionAmount" value="100" />
                 <input type="hidden" name="productDescription" id="productDescription" value="switch" />
                 <br>
-                <button type="submit">Pagar</button>
+                <button type="submit" class="btn btn-sm btn-li wow fadeInUp animated">Pagar</button>
                 <br>
             </div>
         </div>

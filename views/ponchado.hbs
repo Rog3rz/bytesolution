@@ -2,6 +2,7 @@
 
 <div class="container">
 <div class="formulario">
+     <h1>pago con tarjeta</h1>
 <form id="form-checkout" method="POST" action="/pago">
        <input type="text" id="form-checkout__cardNumber" placeholder="Numero de tarjeta" />
        <input type="text" id="form-checkout__cardExpirationMonth" placeholder="Mes de vencimiento (MM)" />
@@ -20,13 +21,13 @@
        <input id="paymentMethodId" name="paymentMethodId" type="hidden" />
        <input id="transactionAmount" name="transactionAmount" type="hidden" value="400"/>
        <input id="description" name="description" type="hidden" value="kit de ponchado" />
-       <button type="submit" id="form-checkout__submit">Pagar</button>
+       <button type="submit" id="form-checkout__submit" class="btn btn-sm btn-li wow fadeInUp animated">Pagar</button>
    </form>
 </div>
 
 <div class="formulario">
      <form action="/oxxo" method="post" id="paymentForm">
-        <h3>Medio de pago</h3>
+       <h1>Otros medios de Pago</h1>
         <div>
             <select class="form-control" id="paymentMethod" name="paymentMethod">
                 <option>Seleccione un medio de pago</option>
@@ -67,7 +68,7 @@
                 <input type="hidden" name="transactionAmount" id="transactionAmount" value="100" />
                 <input type="hidden" name="productDescription" id="productDescription" value="switch" />
                 <br>
-                <button type="submit">Pagar</button>
+                <button type="submit" class="btn btn-sm btn-li wow fadeInUp animated">Pagar</button>
                 <br>
             </div>
         </div>

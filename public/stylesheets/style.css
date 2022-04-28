@@ -986,6 +986,7 @@ blockquote {
     transition: all 0.3s ease 0s;
     width: 165px;
 }
+
 #contact .btn-block:hover{
     background: black none repeat scroll 0 0;
     color: white;

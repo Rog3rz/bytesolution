@@ -19,7 +19,9 @@ button{
     color: black;
     margin:  5px 10px;
 }
-
+.in{
+  margin-top: 0%;
+}
 .formulario{
     border: solid 1px;
     border-color: #000ff4;
@@ -27,11 +29,14 @@ button{
     box-shadow: 0px 0px 40px 16px rgba(0,0,0,0.22);
     color: #F1F1F2;
     position: relative;
-    width: 60%;
-    height: 500px;
+    width: 70%;
+    height: 60vh;
     display: grid;
-    grid-column: 2;
+    grid-column: 9;
+    gap: 10%;
     margin: 5px;
+    align-items: center;
+    text-align: center;
 }
 
 
@@ -60,9 +65,9 @@ h1{
 }
 .container {
   display: flex;
-  height: 320px;
+  height: 80%;
   margin: 2 auto;
-  width: 640px;
+  width: 60%;
 }
 @media (max-width: 767px) {
   .container {
